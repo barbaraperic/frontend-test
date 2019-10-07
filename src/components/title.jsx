@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import getNewColor from '../getNewColor';
 
 class Title extends Component {
   constructor(props) {
@@ -14,12 +15,14 @@ class Title extends Component {
     clicked: !this.state.clicked
   });
 
+  getNewColor()
+
   }
   render () {
     return (
       // BUILD AND RETURN HTML COMPONENT
       <div className={this.state.clicked ? 'clicked' : null } onClick={this.handleClick}>
-        Hello
+        Change the color
       </div>
       );
   }
