@@ -3,20 +3,20 @@ import React, { Component } from 'react';
 class Title extends Component {
   constructor(props) {
     super(props);
-
+    // SET STATE
     this.state = {
-    color: "#ffffff"
+      color: "#ffffff"
     };
   }
 
   handleClick = () => {
-    // var actual = `${this.state.color}`
-    var d1 = document.getElementById('list');
+    // INSERT HTML WITH COLOR STYLE
+    var element = document.getElementById('list');
     var content = `<li style="color: ` + this.state.color + `;">` + this.state.color + `</li>`;
-    d1.insertAdjacentHTML('beforeend', content);
+    element.insertAdjacentHTML('beforeend', content);
 
     const url = 'http://www.colr.org/json/color/random';
-
+    // FETCH JSON AND CHANGE THE STATE
     fetch(url)
     .then(response => response.json())
     .then((data) => {
@@ -29,9 +29,12 @@ class Title extends Component {
   render () {
     return (
       // BUILD AND RETURN HTML COMPONENT
-      <div onClick={this.handleClick} style={{color: `${this.state.color}`}}>
-        Click to change the color
-      </div>
+      <button
+      onClick={this.handleClick}
+      className="btn btn-outline-dark mb-5"
+      style={{color: `${this.state.color}`}}
+        >{this.props.message}
+      </button>
       );
   }
 }
