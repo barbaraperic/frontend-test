@@ -7,12 +7,18 @@ class Title extends Component {
     this.state = {
     clicked: false
     };
+  }
+
+  handleClick = () => {
+  this.setState ({
+    clicked: !this.state.clicked
+  });
 
   }
   render () {
     return (
       // BUILD AND RETURN HTML COMPONENT
-      <div>
+      <div className={this.state.clicked ? 'clicked' : null } onClick={this.handleClick}>
         Hello
       </div>
       );
