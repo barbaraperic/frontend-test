@@ -6,7 +6,8 @@ const getNewColor = () => {
   fetch(url)
   .then(response => response.json())
   .then((data) => {
-    console.log(data.new_color);
+    console.log(`result #${data.new_color}`)
+    return `#${data.new_color}`;
   });
 
 };

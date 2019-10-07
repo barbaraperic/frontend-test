@@ -1,27 +1,30 @@
 import React, { Component } from 'react';
-import getNewColor from '../getNewColor';
 
 class Title extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-    clicked: false
+    color: "red"
     };
   }
 
   handleClick = () => {
-  this.setState ({
-    clicked: !this.state.clicked
-  });
+    const url = 'http://www.colr.org/json/color/random';
 
-  getNewColor()
-
+    fetch(url)
+    .then(response => response.json())
+    .then((data) => {
+      this.setState ({
+        color: `#${data.new_color}`
+      });
+    });
   }
+
   render () {
     return (
       // BUILD AND RETURN HTML COMPONENT
-      <div className={this.state.clicked ? 'clicked' : null } onClick={this.handleClick}>
+      <div onClick={this.handleClick} style={{color: `${this.state.color}`}}>
         Change the color
       </div>
       );
