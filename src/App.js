@@ -2,33 +2,17 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import Title from './components/title';
+import List from './components/list';
 
-class App extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //   colors: []
-  //   };
-  // }
-
-  //  componentDidMount() {
-  //   fetch('http://www.colr.org/json/color/random')
-  //   .then(res => res.json())
-  //   .then((data) => {
-  //     this.setState({ colors: data })
-  //     console.log(this.state.colors)
-  //   })
-  //   .catch(console.log)
-  // }
-
-  render () {
+const App = () => {
     return (
-      <div className="App-header">
+      <div>
+        <div className="App-header">
           <Title />
+          <List />
+        </div>
       </div>
     );
   }
-}
 
 export default App;

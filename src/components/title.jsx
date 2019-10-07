@@ -5,11 +5,16 @@ class Title extends Component {
     super(props);
 
     this.state = {
-    color: "red"
+    color: "#ffffff"
     };
   }
 
   handleClick = () => {
+    // var actual = `${this.state.color}`
+    var d1 = document.getElementById('list');
+    var content = `<li style="color: ` + this.state.color + `;">` + this.state.color + `</li>`;
+    d1.insertAdjacentHTML('beforeend', content);
+
     const url = 'http://www.colr.org/json/color/random';
 
     fetch(url)
@@ -25,7 +30,7 @@ class Title extends Component {
     return (
       // BUILD AND RETURN HTML COMPONENT
       <div onClick={this.handleClick} style={{color: `${this.state.color}`}}>
-        Change the color
+        Click to change the color
       </div>
       );
   }
